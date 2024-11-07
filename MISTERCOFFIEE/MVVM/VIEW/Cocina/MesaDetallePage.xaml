@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MISTERCOFFIEE.MVVM.VIEW.Cocina.MesaDetallePage"
+             Title="Pedidos de Mesa">
+    <Grid BackgroundColor="Pink">
+        <!-- Definición de filas para el Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Button Text="Aceptar Orden" Command="{Binding AceptarCommand}" HeightRequest="60" BackgroundColor="#4CAF50" TextColor="White" Margin="12" CharacterSpacing="1.5"></Button>
+        <CollectionView ItemsSource="{Binding PedidosMesa}" Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" HeightRequest="60" Margin="10">
+                        <StackLayout>
+                            <HorizontalStackLayout>
+
+                                <Label Text="{Binding Producto}" FontSize="18" Margin="12" VerticalOptions="Center" FontAttributes="Bold"/>
+
+                                <Label Text="{Binding Cantidad, StringFormat='Cantidad: {0}'}" VerticalOptions="Center" Margin="12" FontSize="14"/>
+                            </HorizontalStackLayout>
+                            <!-- Muestra el nombre del producto -->
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+
+        <!-- Barra de navegación inferior -->
+        <ContentView Grid.Row="2"  HeightRequest="180" BackgroundColor="Pink">
+            <Grid BackgroundColor="Pink">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+
+                <Button Text="Terminar Orden" Command="{Binding TerminarCommand }"  BackgroundColor="#4CAF50"  TextColor="White" Margin="12" CharacterSpacing="1.5"></Button>
+
+
+                <Frame Padding="0" HasShadow="True" HeightRequest="89" Grid.Row="1"  Margin="0">
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Botón Home -->
+                        <StackLayout Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton x:Name="homeButton"   Source="home_icon.png" HeightRequest="32"
+                  HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Home" FontAttributes="Bold" FontFamily="Roboto-Black" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+
+                        <!-- Botón Acerca de -->
+                        <StackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton x:Name="aboutButton" Source="acercade_icon.png" HeightRequest="32"
+                           HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Acerca de" FontFamily="Roboto-Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+
+                        <!-- Botón Perfil -->
+                        <StackLayout Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton x:Name="userButton" Source="perfil_icon.png" HeightRequest="32"
+                        HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Perfil" FontFamily="Roboto-Black"  HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ContentView>
+    </Grid>
+</ContentPage>

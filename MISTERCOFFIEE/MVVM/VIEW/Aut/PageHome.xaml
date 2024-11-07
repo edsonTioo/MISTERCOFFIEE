@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MISTERCOFFIEE.MVVM.VIEW.Aut.PageHome"
+             Title="PageHome"
+             Shell.NavBarHasShadow="False"
+             Shell.NavBarIsVisible="True">
+    <Grid  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"  />
+            <RowDefinition  Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- ScrollView para la cuadrícula de botones -->
+        <ScrollView Grid.Row="1" BackgroundColor="Pink">
+            <Grid ColumnSpacing="10" RowSpacing="16" Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Botón para Gestión de Clientes -->
+                <Frame Grid.Row="0" Grid.Column="0" Margin="5" Padding="10" CornerRadius="15" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <ImageButton Source="cliente.png" Clicked="OnClienteButton" HeightRequest="80"/>
+                        <Label Text="Clientes" FontFamily="Roboto-Black" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Botón para Gestión de Cocina -->
+                <Frame Grid.Row="0" Grid.Column="1" Margin="5" Padding="10" CornerRadius="15" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <ImageButton Source="cocina.png" Clicked="OnButtonConcina"  HeightRequest="80"/>
+                        <Label Text="Cocina" FontFamily="Roboto-Black" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Botón para Gestión de Empleado -->
+                <Frame Grid.Row="1" Grid.Column="0" Margin="5" Padding="10" CornerRadius="15" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <ImageButton Source="empleado.png" Clicked="OnEmpleadoButton"  HeightRequest="80"/>
+                        <Label Text="Empleado" FontFamily="Roboto-Black" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Botón para Inventario -->
+                <Frame Grid.Row="1" Grid.Column="1" Margin="5" Padding="10" CornerRadius="15" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <ImageButton Source="inventario.png"  HeightRequest="80"/>
+                        <Label Text="Inventario" FontFamily="Roboto-Black" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Botón para Reportes -->
+                <Frame Grid.Row="4" Grid.Column="0" Margin="5" Padding="10" CornerRadius="15" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <ImageButton Source="reportes.png"  HeightRequest="80"/>
+                        <Label Text="Reportes" FontFamily="Roboto-Black" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Botón para Mesas -->
+                <Frame Grid.Row="3" Grid.Column="0" Margin="5" Padding="10" CornerRadius="15" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <ImageButton Source="mesa.png" Clicked="OnMesasButton" HeightRequest="80"/>
+                        <Label Text="Mesas" FontFamily="Roboto-Black" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Botón para Productos -->
+                <Frame Grid.Row="3" Grid.Column="1" Margin="5" Padding="10" CornerRadius="15" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <ImageButton Source="productos.png" Clicked="OnProductoButtonClicked" HeightRequest="80"/>
+                        <Label Text="Producto" FontFamily="Roboto-Black" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </ScrollView>
+        <!-- Barra inferior -->
+        <ContentView  Grid.Row="3" HeightRequest="82" BackgroundColor="Pink">
+            <Grid>
+                <Frame Padding="8"  >
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Botón Home -->
+                        <StackLayout Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton x:Name="homeButton" Clicked="OnHomeMenu"  Source="home_icon.png" HeightRequest="42"
+                              HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Home" FontAttributes="Bold" FontFamily="Roboto-Black" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+
+                        <!-- Botón Acerca de -->
+                        <StackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton x:Name="aboutButton" Clicked="OnAcercadeClick" Source="acercade_icon.png" HeightRequest="42"
+                              HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Acerca de" FontFamily="Roboto-Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+
+                        <!-- Botón Perfil -->
+                        <StackLayout Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton x:Name="userButton" Clicked="OnPerfilEmpleado" Source="perfil_icon.png" HeightRequest="42"
+                              HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Perfil" FontFamily="Roboto-Black"  HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ContentView>
+    </Grid>
+</ContentPage>

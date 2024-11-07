@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MISTERCOFFIEE.MVVM.VIEW.ModuloMesa.PageMesas"
+             Title="Mesas"
+                   x:Name="PAGEMESAS"
+             BackgroundColor="Pink">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!-- Contenido con tarjetas desplazables -->
+        <ScrollView Grid.Row="1" Grid.ColumnSpan="3" Padding="18" Margin="0,5,0,0">
+            <CollectionView ItemsSource="{Binding ListMesas}" BackgroundColor="Pink">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10" HeightRequest="180" VerticalOptions="Center" BorderColor="LightGray" Margin="12,12,12,12" Padding="8" BackgroundColor="White" HasShadow="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout>
+                                    <Label Text="Codigo de Mesa:" FontSize="14" TextColor="Black" FontAttributes="Bold"/>
+                                    <Label Text="{Binding NumeroMesa}" FontSize="14" TextColor="Black"/>
+                                    <Label Text="F/Creacion:" FontSize="14" TextColor="Black" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Fecha}" FontSize="14" TextColor="Gray"/>
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1">
+                                    <Button Text="Eliminar Mesa" Margin="5" BackgroundColor="Red" Command="{Binding Path=BindingContext.EliminarCommand, Source={x:Reference PAGEMESAS}}" CommandParameter="{Binding Id}" />
+                                    <Button Text="Agregar Pedidos" Margin="5" Clicked="AggProducto" BackgroundColor="#3E9B1B" Command="{Binding Path=BindingContext.EditCommand, Source={x:Reference PAGEMESAS}}" CommandParameter="{Binding Id}" />
+                                    <Button Text="Ver productos" Margin="5" BackgroundColor="#3F8BCD" Command="{Binding Path=BindingContext.EditCommand, Source={x:Reference PAGEMESAS}}" CommandParameter="{Binding Id}" />
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <!-- Barra inferior -->
+        <ContentView Grid.Row="2" Grid.ColumnSpan="3" HeightRequest="150" BackgroundColor="Transparent">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0" Text="Nueva Mesa"
+                        BackgroundColor="#3E9B1B"
+                        TextColor="White"
+                        FontSize="Large"
+                        FontFamily="Roboto-Black"
+                        CornerRadius="5"
+                        Command="{Binding CrearMesasCommand}"
+                        HeightRequest="50"
+                        WidthRequest="360"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="0,0,0,0"
+                        BorderColor="#E4B19B"
+                        BorderWidth="1"/>
+
+                <Frame Grid.Row="1" Padding="0" Margin="8,0,8,0" HasShadow="True">
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Botón Home -->
+                        <StackLayout Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton Source="home_icon.png" HeightRequest="32"/>
+                            <Label Text="Home" FontAttributes="Bold" FontFamily="Roboto-Black" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+
+                        <!-- Botón Acerca de -->
+                        <StackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton Source="acercade_icon.png" HeightRequest="32"/>
+                            <Label Text="Acerca de" FontFamily="Roboto-Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+
+                        <!-- Botón Perfil -->
+                        <StackLayout Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton Source="perfil_icon.png" HeightRequest="32"/>
+                            <Label Text="Perfil" FontFamily="Roboto-Black" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ContentView>
+    </Grid>
+
+</ContentPage>

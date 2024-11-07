@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MISTERCOFFIEE.MVVM.VIEW.Reporte.HomeReporte"
+             Title="HomeReporte">
+    <Grid  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"  />
+            <RowDefinition  Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- ScrollView para la cuadrícula de botones -->
+        <ScrollView Grid.Row="1" BackgroundColor="Pink">
+            <Grid ColumnSpacing="10" RowSpacing="16" Padding="20">
+                <VerticalStackLayout Padding="20" Spacing="20">
+
+                    <!-- Header Section -->
+                    <Label Text="Panel de Reportes" 
+           FontSize="28" 
+           FontAttributes="Bold" 
+           HorizontalOptions="Center" 
+           TextColor="White"/>
+
+                    <!-- Report Buttons Section -->
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*,*" ColumnSpacing="15" RowSpacing="15">
+
+                        <!-- Button 1: Reporte de Ventas -->
+                        <Button Grid.Row="0" Grid.Column="0" 
+                Text="Reporte de Ventas" 
+                FontAttributes="Bold"
+                BackgroundColor="#2196F3"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50"
+                />
+                        <!-- Button 2: Reporte de Productos -->
+                        <Button Grid.Row="0" Grid.Column="1" 
+                Text="Reporte de Productos"
+                FontAttributes="Bold"
+                BackgroundColor="#FF9800"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50"
+                />
+                        <!-- Button 3: Reporte de Clientes -->
+                        <Button Grid.Row="1" Grid.Column="0" 
+                Text="Reporte de Clientes"
+                FontAttributes="Bold"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50"
+                />
+
+                        <!-- Button 4: Reporte de Inventario -->
+                        <Button Grid.Row="1" Grid.Column="1" 
+                Text="Reporte de Inventario"
+                FontAttributes="Bold"
+                BackgroundColor="#9C27B0"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50"
+                />
+
+                        <!-- Button 5: Reporte de Finanzas -->
+                        <Button Grid.Row="2" Grid.Column="0" 
+                Text="Reporte de Finanzas"
+                FontAttributes="Bold"
+                BackgroundColor="#F44336"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50"
+                />
+
+                        <!-- Button 6: Reporte de Mesas -->
+                        <Button Grid.Row="2" Grid.Column="1" 
+                Text="Reporte de Mesas"
+                FontAttributes="Bold"
+                BackgroundColor="#673AB7"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50"
+                />
+
+                    </Grid>
+                </VerticalStackLayout>
+
+
+
+            </Grid>
+        </ScrollView>
+
+        <!-- Barra inferior -->
+        <ContentView  Grid.Row="3" HeightRequest="82" BackgroundColor="Pink">
+            <Grid>
+                <Frame Padding="8"  >
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Botón Home -->
+                        <StackLayout Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton x:Name="homeButton"  Source="home_button.png" HeightRequest="42"
+                              HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Home" FontAttributes="Bold" FontFamily="Roboto-Black" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+
+                        <!-- Botón Acerca de -->
+                        <StackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton x:Name="aboutButton" Source="information.png" HeightRequest="42"
+                              HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Acerca de" FontFamily="Roboto-Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+
+                        <!-- Botón Perfil -->
+                        <StackLayout Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton x:Name="userButton" Source="user_homeicon.png" HeightRequest="42"
+                              HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Perfil" FontFamily="Roboto-Black"  HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ContentView>
+
+
+    </Grid>
+</ContentPage>
